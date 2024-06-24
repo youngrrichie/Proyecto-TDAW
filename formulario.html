@@ -198,15 +198,44 @@ ul,ol{
 	</div>
     <center><font face="algerian" color="white"><h1>Contacto sobre la pagina</h1></font></center>
 
-  <section class="form-register">
-    <h4>Formulario de Contacto</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-    <input class="controls" type="text" name="motivo" id="motivo" placeholder="Motivo por el que se comunica">
-    <input class="botons" type="submit" value="Enviar">
-    <p>Gracias por ponerse en contacto con nosotros.</p>
-  </section>
-
-</body>
+	<section class="form-register">
+		<h4>Formulario de Contacto</h4>
+		<input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+		<input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+		<input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+		<input class="controls" type="text" name="motivo" id="motivo" placeholder="Motivo por el que se comunica">
+		<input class="botons" type="submit" value="Enviar" id="btnSubmit">
+		<p>Gracias por ponerse en contacto con nosotros.</p>
+	  </section>
+	
+	</body>
+	<script>
+		let btnSubmit = document.getElementById("btnSubmit");
+		btnSubmit.addEventListener("click", function (){
+			let nombres = document.getElementById("nombres").value;
+			let apellidos = document.getElementById("apellidos").value;
+			let email = document.getElementById("correo").value;
+			let motivo = document.getElementById("motivo").value;
+	
+			console.log(nombres, apellidos, email, motivo);
+			
+			var peticionAJAX = new XMLHttpRequest();
+			peticionAJAX.open("POST","./PHP/guardarFormulario.php");
+			peticionAJAX.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			let parametros = "phpnombres="+nombres+"&phpapellidos="+apellidos+"&phpemail="+email+"&phpmotivo="+motivo
+			peticionAJAX.send(parametros);
+			peticionAJAX.onload = function(){
+				let respuesta = peticionAJAX.responseText;
+				if(respuesta=="1"){
+					alert("Datos registrados con exito.");
+					document.getElementById("nombres").value="";
+					document.getElementById("apellidos").value="";
+					document.getElementById("correo").value="";
+					document.getElementById("motivo").value="";
+				}else{
+					alert("Ha ocurrido un error al registrar tus datos.");
+				}
+			}
+		});
+	</script>
 </html>
