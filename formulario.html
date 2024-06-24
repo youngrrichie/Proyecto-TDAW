@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Formulario de Contacto</title>
+  <style>
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('MULTIMEDIA/FONDO.gif');
+  
+}
+
+.form-register {
+  width: 400px;
+  background: #24303cf0;
+  padding: 30px;
+  margin: auto;
+  margin-top: 300px;
+  border-radius: 20px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+
+.form-register h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.controls {
+  width: 100%;
+  background: #24303c29;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  border: 1px solid #cbcfd7a9;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: white;
+}
+
+.form-register p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.form-register a {
+  color: white;
+  text-decoration: none;
+}
+
+.form-register a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.form-register .botons {
+  width: 100%;
+  background: #6d6e72;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+  </style>
+</head>
+<body>
+  <section class="form-register">
+    <h4>Formulario de Contacto</h4>
+    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
+    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+    <input class="controls" type="text" name="motivo" id="motivo" placeholder="Motivo por el que se comunica">
+    <input class="botons" type="submit" value="Enviar">
+    <p>Gracias por ponerse en contacto con nosotros.</p>
+  </section>
+
+</body>
+</html>
